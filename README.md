@@ -1,5 +1,8 @@
 ## 此版本為Paper版本，送request時沒有用thread
-## 另一版本送request有用thread :https://github.com/forealasting/MPDQN-Scalable_OneM2M_RL_for_INTEL
+* 另一版本送request有用thread :https://github.com/forealasting/MPDQN-Scalable_OneM2M_RL_for_INTEL
+* 修改地方: Function: **def send_request**(sensors, request_num, total_episodes):...
+
+
 
 ## Run Code
 
@@ -68,21 +71,6 @@ monitor_period = 30     # Adjust the monitor period as needed
 simulation_time = 3600  # Adjust the simulation time as needed
 ```
 
-### Manual Action Configuration
-
-If you want to manually set actions for evaluation or debugging, adjust the following settings:
-
-```python
-manual_action = 0  # Set to 0 if not using manual actions
-
-# Manual action settings for replica 1
-manual_action_replica1 = 1
-manual_action_cpus1 = 0.8
-
-# Manual action settings for replica 2
-manual_action_replica2 = 1
-manual_action_cpus2 = 0.8
-```
 
 ### Learning Parameters
 

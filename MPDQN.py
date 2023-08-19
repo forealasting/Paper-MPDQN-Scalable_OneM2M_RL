@@ -19,7 +19,7 @@ data_rate = 20    # if not use_tm
 use_tm = 1  # if use_tm
 tm_path = 'request/request15.txt'  # traffic path
 # Warning !!!need to modify pdqn_v1.py loss_result_dir also
-result_dir = "./mpdqn_result/result3/evaluate1/"
+result_dir = "./pdqn_result/result3/evaluate2/"
 ## initial
 request_num = []
 # timestamp    :  0, 1, 2, , ..., 61, ..., 3601
@@ -37,6 +37,7 @@ RFID = 0  # oneM2M resource name  (Need different)
 event_mn1 = threading.Event()
 event_mn2 = threading.Event()
 event_timestamp_Ccontrol = threading.Event()
+event_monitor = threading.Event()
 
 # Need modify ip if ip change
 ip = "192.168.99.128"  # app_mn1
@@ -62,7 +63,7 @@ total_episodes = 16   # Training_episodes
 if_test = True
 if if_test:
     total_episodes = 1  # Testing_episodes
-
+monitor_period = 60
 multipass = True  # False : PDQN  / Ture: MPDQN
 
 # Exploration parameters
@@ -275,6 +276,7 @@ class Env:
         event.set()
 
         time.sleep(55)  # wait for monitor ture value
+        # event_monitor.wait()
 
         response_time_list = []
         # self.cpu_utilization = self.get_cpu_utilization()
@@ -424,6 +426,7 @@ def send_request(sensors, request_num, total_episodes):
     global change, send_finish, reset_complete
     global timestamp, use_tm, RFID
     error = 0
+    # event_monitor.clear()
     for episode in range(total_episodes):
         timestamp = 0
         print("episode: ", episode+1)
@@ -438,6 +441,9 @@ def send_request(sensors, request_num, total_episodes):
             # print('timestamp: ', timestamp)
             event_mn1.clear()  # set flag to false
             event_mn2.clear()
+            # if ((timestamp + 6) % monitor_period == 0):
+            #     event_monitor.set()
+            # event_monitor.clear()
             if ((timestamp) % 60) == 0 and timestamp!=0 :  # every 60s scaling
                 print("wait mn1 mn2 step and service scaling ...")
                 event_mn1.wait()  # if flag == false : wait, else if flag == True: continue

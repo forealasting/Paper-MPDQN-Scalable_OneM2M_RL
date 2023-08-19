@@ -23,7 +23,7 @@ if if_evaluation:
 # tmp_str = "result2/result_cpu" # result_1016/tm1
 #tmp_dir = "pdqn_result/result2"
 # tmp_dir = "offline/database4"
-tmp_dir = "/home/user/MPDQN-Scalable_OneM2M_RL/mpdqn_result/result/evaluate2/"
+tmp_dir = "/home/user/MPDQN-Scalable_OneM2M_RL/mpdqn_result/result3/evaluate2/"
 path1 = tmp_dir + "/app_mn1_trajectory.txt"
 path2 = tmp_dir + "/app_mn2_trajectory.txt"
 
