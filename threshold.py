@@ -17,6 +17,7 @@ data_rate = 50      # if not use_tm
 use_tm = 1  # if use_tm
 
 # result path
+tm_path = 'request/request15.txt'  # traffic path
 result_dir = "./threshold_result/result2/"
 ## initial
 request_num = []
@@ -92,7 +93,7 @@ stage = ["RFID_Container_for_stage0", "RFID_Container_for_stage1", "Liquid_Level
          "Color_Container", "RFID_Container_for_stage3", "Contrast_Data_Container", "RFID_Container_for_stage4"]
 
 if use_tm:
-    f = open('request/request14.txt')
+    f = open(tm_path)
 
     for line in f:
         if len(request_num) < request_n:

@@ -16,10 +16,10 @@ print(datetime.datetime.now())
 
 # request rate r
 data_rate = 20    # if not use_tm
-use_tm = 0  # if use_tm
-
+use_tm = 1  # if use_tm
+tm_path = 'request/request15.txt'  # traffic path
 # Warning !!!need to modify pdqn_v1.py loss_result_dir also
-result_dir = "./mpdqn_result/result1/evaluate3/"
+result_dir = "./mpdqn_result/result3/evaluate1/"
 ## initial
 request_num = []
 # timestamp    :  0, 1, 2, , ..., 61, ..., 3601
@@ -134,7 +134,7 @@ sensors = ["RFID_Container_for_stage0", "RFID_Container_for_stage1", "Liquid_Lev
          "Color_Container", "RFID_Container_for_stage3", "Contrast_Data_Container", "RFID_Container_for_stage4"]
 
 if use_tm:
-    f = open('request/request14.txt')
+    f = open(tm_path)
 
     for line in f:
         if len(request_num) < request_n:

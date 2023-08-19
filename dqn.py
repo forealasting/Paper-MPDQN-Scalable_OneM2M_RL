@@ -21,6 +21,7 @@ print(datetime.datetime.now())
 # request rate r
 data_rate = 20      # if not use_tm
 use_tm = 0 # if use_tm
+tm_path = 'request/request15.txt'  # traffic path
 result_dir = "./dqn_result/result1/evaluate1/"
 
 ## initial
@@ -121,7 +122,7 @@ sensors = ["RFID_Container_for_stage0", "RFID_Container_for_stage1", "Liquid_Lev
          "Color_Container", "RFID_Container_for_stage3", "Contrast_Data_Container", "RFID_Container_for_stage4"]
 
 if use_tm:
-    f = open('request/request14.txt')
+    f = open(tm_path)
 
     for line in f:
         if len(request_num) < request_n:
